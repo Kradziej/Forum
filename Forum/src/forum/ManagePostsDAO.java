@@ -2,11 +2,11 @@ package forum;
 
 import javax.ejb.Local;
 
-@Local
 public interface ManagePostsDAO {
 	
-	void createPost(Post post, Integer threadId);
+	void createPost(PostEntity post, Integer threadId);
+	void test(ThreadEntity th);
+	void test2();
 	void deletePost(Integer postId);
 	void editPost(String msg);
-	void changeTopic(String topic);
 }

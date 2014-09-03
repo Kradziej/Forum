@@ -7,22 +7,30 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="threads")
-public class Thread {
+public class ThreadEntity {
 	
 	@Id
 	@Column(name="threadID")
 	private Integer threadId;
-	@Column(name="topic")
+	@Column(name="topic", length = 100)
 	private String topic;
-	@Column(name = "order")
+	@Column(name="threadsOrder")
 	private Integer order;
 	
 	
-	Thread(Integer threadId, String topic) {
+	// for bumping
+	ThreadEntity(Integer threadId, String topic) {
 		
 		this.threadId = threadId;
 		this.topic = topic;
 		this.order = 0;
+	}
+
+	ThreadEntity(Integer threadId, String topic, Integer order) {
+		
+		this.threadId = threadId;
+		this.topic = topic;
+		this.order = order;
 	}
 
 	
@@ -46,6 +54,14 @@ public class Thread {
 
 	public void setTopic(String topic) {
 		this.topic = topic;
+	}
+
+	public Integer getOrder() {
+		return order;
+	}
+
+	public void setOrder(Integer order) {
+		this.order = order;
 	}
 
 }

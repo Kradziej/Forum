@@ -4,14 +4,11 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
     <persistence-unit name="forumManagement">
+    
+      <jta-data-source>jdbc/forumDB</jta-data-source>
         
-       <properties>
-       <property name="javax.persistence.jdbc.url"
-                 value="jdbc:mysql://localhost:3306/forum"/>
-       <property name="javax.persistence.jdbc.user" value="root"/>
-       <property name="javax.persistence.jdbc.password" value=""/>
-       <!--  <property name="javax.persistence.jdbc.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
-       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <properties>
+        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
      </properties>
      
     </persistence-unit>
