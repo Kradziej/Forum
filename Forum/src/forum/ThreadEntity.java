@@ -3,9 +3,16 @@ package forum;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="ThreadEntity.threadsByOrder",
+                query="SELECT e FROM ThreadEntity e WHERE e.order"
+                		+ " BETWEEN :bottom AND :top ORDER BY e.order DESC")
+}) 
 @Table (name="threads")
 public class ThreadEntity {
 	
@@ -14,7 +21,7 @@ public class ThreadEntity {
 	private Integer threadId;
 	@Column(name="topic", length = 100)
 	private String topic;
-	@Column(name="threadsOrder")
+	@Column(name="threadOrder")
 	private Integer order;
 	
 	

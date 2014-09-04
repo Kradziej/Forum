@@ -9,6 +9,7 @@ import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,10 +29,13 @@ public class Test extends HttpServlet {
     public Test() {
         super();
     }
+    
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	
+    
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Random rand = new Random();
@@ -57,11 +61,9 @@ public class Test extends HttpServlet {
 		
 		if(request.getParameter("orderUp").equals("1"))
 			managePostsDAO.test2();
-	}
+	}*/
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}

@@ -2,27 +2,25 @@ package forum;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 
 @Entity
-@Table (name="threads_structure")
-public class ThreadsStructureEntity {
+@Table (name="thread_structure")
+public class ThreadStructureEntity {
 	
 	@Id
-	@GeneratedValue
 	@Column(name="postID")
 	private Integer postId;
-	@Column(name="parentPostID")
-	private Integer parentPostId;
+	@Column(name="childPostID")
+	private Integer childPostId;
 	
 	
 	
-	public ThreadsStructureEntity(Integer postId, Integer parentPostId) {
+	public ThreadStructureEntity(Integer postId, Integer childPostId) {
 		this.postId = postId;
-		this.parentPostId = parentPostId;
+		this.childPostId = childPostId;
 	}
 	
 	
@@ -36,10 +34,10 @@ public class ThreadsStructureEntity {
 		this.postId = postId;
 	}
 	public Integer getParentPostId() {
-		return parentPostId;
+		return childPostId;
 	}
-	public void setParentPostId(Integer parentPostId) {
-		this.parentPostId = parentPostId;
+	public void setParentPostId(Integer childPostId) {
+		this.childPostId = childPostId;
 	}
 	
 
