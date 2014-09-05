@@ -7,11 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="PostEntity.createPost",
+                query="SELECT e FROM ThreadEntity e WHERE e.order"
+                		+ " BETWEEN :bottom AND :top ORDER BY e.order ASC")
+}) 
 @Table (name="posts")
 public class PostEntity {
 	
@@ -32,27 +39,6 @@ public class PostEntity {
 	private Date date;
 	
 	PostEntity() {}
-	
-	PostEntity(String posterName, String message, String imageName, String imageId) {
-		
-		this.posterName = posterName;
-		this.message = message;
-		this.imageName = imageName;
-		this.imageId = imageId;
-	}
-	
-	PostEntity(String posterName, String imageName, String imageId) {
-		
-		this.posterName = posterName;
-		this.imageName = imageName;
-		this.imageId = imageId;
-		this.message = "";
-	}
-	
-	PostEntity(String message) {
-		
-		this.message = message;
-	}
 	
 	@PrePersist
 	public void createTimestamp() {

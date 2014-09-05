@@ -17,11 +17,10 @@ public class ThreadStructureEntity {
 	private Integer childPostId;
 	
 	
+	public ThreadStructureEntity() {}
 	
-	public ThreadStructureEntity(Integer postId, Integer childPostId) {
-		this.postId = postId;
-		this.childPostId = childPostId;
-	}
+	
+	
 	
 	
 	//GETTERS / SETTERS
@@ -30,15 +29,20 @@ public class ThreadStructureEntity {
 	public Integer getPostId() {
 		return postId;
 	}
+	
 	public void setPostId(Integer postId) {
 		this.postId = postId;
 	}
-	public Integer getParentPostId() {
+
+
+	public Integer getChildPostId() {
 		return childPostId;
 	}
-	public void setParentPostId(Integer childPostId) {
+
+
+	public void setChildPostId(Integer childPostId) {
 		this.childPostId = childPostId;
 	}
-	
+
 
 }

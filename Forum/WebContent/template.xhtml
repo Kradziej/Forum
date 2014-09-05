@@ -121,7 +121,7 @@
 	
 		//background: #D9AF9E;
 		//opacity: 0.7;
-		border: 0 !important;;
+		border: 0 !important;
 	}
 	
 	.op span {
@@ -137,7 +137,7 @@
 		display: block;
 		position: relative;
 		left: -30px;
-		width: 39px;
+		width: 36px;
 		height: 6px;
 		border-radius: 0 30px 0 30px;
 		background: rgb(142,67,80);
@@ -185,9 +185,9 @@
 		
 		//this one not set
 		//background-image: -webkit-gradient(linear, 0% 0%, 100% 0%,color-stop(0.015, rgb(0, 0, 0)),color-stop(0.016, rgba(0, 0, 0, 0)));
-	    background-image: -webkit-linear-gradient(left,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
-    	background-image: linear-gradient(to right,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
-    	background-image: -ms-linear-gradient(left,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
+	    background-image: -webkit-linear-gradient(left,rgb(142,67,80) 5px,rgba(0, 0, 0, 0) 6px);
+    	background-image: linear-gradient(to right,rgb(142,67,80) 5px,rgba(0, 0, 0, 0) 6px);
+    	background-image: -ms-linear-gradient(left,rgb(142,67,80) 5px,rgba(0, 0, 0, 0) 6px);
     	
 	}
 
@@ -213,7 +213,7 @@
 	}
 	
 	
-	#head textarea[name=comment] {
+	#head textarea {
 		position:relative;
 		height: 100px;
 		width: 180px;
@@ -237,16 +237,19 @@
 		top: 50%;
 	}
 	
+	.sendButton {
+	
+		margin: 0 !important;
+		margin-left: 10px !important;
+		padding: 0 !important;
+		border: 0 !important;
+		height: 20px !important;
+		width: 90px !important;
+		background: gray !important;
+	}
+	
 	
 </style>
-
-
-<script type="text/javascript">
-	
-
-	
-</script>
-
 
 </h:head>
 
@@ -261,15 +264,19 @@
 				<li><a href="images.jsp">images</a></li>
 			</ul>
 		</nav>
+		
 			
-		<!--  <form action="/post" name="post-form" method="post.jsp" id="post-form">
-				<label>Email: </label> <input type="text" name="email"><br>
-				<label>Subject: </label><input type="text" name="subject"><br>
-				<label>Name: </label><input type="text" name="name"><br>
-				<label>Comment: </label><textarea name="comment"></textarea><br>
-				<label>Password: </label><input type="text" name="password"></textarea><br>	
-		</form>	-->
-
+		<h:form action="post" name="post-form" id="post-form">
+		 		<h:outputLabel id="topicLabel" for="topic" value="Topic" />
+                <h:inputText id="topic" type="text" value="" />
+                <h:outputLabel id="nameLabel" for="name" value="Name" />
+                <h:inputText id="name" type="text" value="" />
+                <h:commandButton value="Wyślij" action="hello?faces-redirect=true" styleClass="sendButton" />
+                <h:outputLabel id="commentLabel" for="comment" value="Comment" />
+                <h:inputTextarea id="comment" type="text" value="" />
+                <h:outputLabel id="passwordLabel" for="password" value="Password" />
+                <h:inputText id="password" type="text" value="" />
+		</h:form>	
 	
 	</section>
 	
@@ -311,6 +318,7 @@
 				sdfsddfdsasadasdsf<br/>
 				sdfasdasdasdasddfsf<br/>
 				</span>
+				<div class="resp-expand"><img src="smiley.gif" class="resp-expand"></img></div>
 				</div>
 				
 				<div class="responses">
@@ -347,7 +355,6 @@
 							sdfsddasddfsf<br/>
 							sdfsddsdasdasdfsf<br/>
 							</span>
-							<div class="resp-expand"><img src="smiley.gif" class="resp-expand"></img></div>
 							</div>
 							
 							<div class="post-22229 resp">
