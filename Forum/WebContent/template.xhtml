@@ -21,6 +21,7 @@
 	  //height: 2000px;
 	  margin: 0px;
 	  padding: 0px;
+	  font-size: 0.9em;
 	}
 
 	nav {
@@ -75,6 +76,8 @@
 	#foot {
 		height: 100px;
 		background: #756660;
+		position: relative;
+		top: 100px;
 	}
 	
 	#post-form {
@@ -85,29 +88,40 @@
 	}
 	
 	.thread {
-		margin: 20px 0 0 7%;
+		margin: 20px 0 0 2%;
 		display: block;
 	}
 	
 	.thread header {
 		padding-bottom: 2px;
 		font-weight: bold;
+		background: #D9AF9E;
+		width: 99%;
+		padding: 4px;
 	}
+	
 	
 	div[class^=post] {
 		word-wrap: break-word;
-		border: 2px dashed black;
-		border-radius: 4px;
+		border-top: 2px dashed black;
 		display: block; 
 		float: left; 
 		clear: both; 
 		min-width: 300px;
+		padding-left: 10px;
+		position: relative;
+	}
+	
+	div[class^=post] span {
+		padding: 20px 60px 30px 30px;
+		display: inline-block;
 	}
 	
 	.op {
 	
-		background: #D9AF9E;
-		opacity: 0.7;
+		//background: #D9AF9E;
+		//opacity: 0.7;
+		border: 0 !important;;
 	}
 	
 	.op span {
@@ -116,29 +130,74 @@
 	}
 	
 	
+	
+	.responses::before {
+	
+		content: "";
+		display: block;
+		position: relative;
+		left: -30px;
+		width: 39px;
+		height: 6px;
+		border-radius: 0 30px 0 30px;
+		background: rgb(142,67,80);
+	}
+	
 	.responses {
 	
 		margin-left: 30px;
+		clear: both;
+	}
+	
+	.responses > div:first-child {
+		border-top: 4px solid rgb(142,67,80);
+		border-radius: 0 3px 0 0;
+	}
+	
+	.responses > div:last-child {
+		margin-bottom: 4px;
+	}
+	
+	.responses-op {
+	
+		margin-left: 30px;
+		clear: both;
+	}
+	
+	.responses-op > .resp {
+		border-radius: 2px;
+	}
+	
+	.responses-op > .responses + div {
+		border: 0;
 	}
 	
 	.resp {
 	
-		margin-top: 5px;
+		//margin-top: 5px;
 		//margin-left: 20px;
 		background: #D9AF9E;
         color:#000000;
-		opacity: 0.7;
+		//opacity: 0.7;
+	}
+	
+	.responses .resp {
+		
+		//this one not set
+		//background-image: -webkit-gradient(linear, 0% 0%, 100% 0%,color-stop(0.015, rgb(0, 0, 0)),color-stop(0.016, rgba(0, 0, 0, 0)));
+	    background-image: -webkit-linear-gradient(left,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
+    	background-image: linear-gradient(to right,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
+    	background-image: -ms-linear-gradient(left,rgb(142,67,80) 9px,rgba(0, 0, 0, 0) 10px);
+    	
 	}
 
 	.resp header {
-		padding: 2px 0px 2px 2px;
+		padding: 2px 0px 2px 5px;
 		font-weight: bold;
+		width: 98%;
+		background: none;
 	}
 	
-	.resp span {
-		padding: 3px 10px 7px 8px;
-		display: block;
-	}
 
 	#head input, textarea, label {
 		margin: 2px 2px;
@@ -161,6 +220,24 @@
 	}
 	
 	
+	.resp-expand {
+	
+		position:absolute;
+    	top:0;
+    	bottom:0;
+    	right:0;
+    	margin:auto;
+	}
+	
+	.resp-expand img {
+	
+		height: 40px;
+		width: 40px;
+		position: relative;
+		top: 50%;
+	}
+	
+	
 </style>
 
 
@@ -174,7 +251,7 @@
 </h:head>
 
 
-<h:body onload=#{dfd.fff}>
+<h:body>
 
 	<section id="head">
 		<nav>
@@ -196,16 +273,14 @@
 	
 	</section>
 	
-	
-	 <ui:repeat value="#{productController.products}" var="product">
-	 <ui:repeat var="" value=""></ui:repeat>
 
 	
 	<section id="content">
-	
+		
+		
 		<article class="thread">
-			<div class="post-22222 op">
 			<header>[-] (User Name) (Temat) Post No. 22222 [Odpowiedz]</header>
+			<div class="post-22222 op">
 			<span>ssssssss<br/>
 			ssssssss<br/>
 			fssdfsdfsfsdfsdfd<br/>
@@ -214,7 +289,7 @@
 			
 			</div>
 			
-			<div class="responses">
+			<div class="responses-op">
 				
 				<div class="post-22223 resp">
 				<header>(User Name) Post No. 22223</header>
@@ -260,6 +335,36 @@
 					sdfsddsdasdasdfsf<br/>
 					</span>
 					</div>
+					
+					
+						<div class="responses">
+							<div class="post-22227 resp">
+							<header>(User Name) Post No. 22225</header>
+							<span>
+							sdfsdasdasdasdfsf<br/>
+							sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+							eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+							sdfsddasddfsf<br/>
+							sdfsddsdasdasdfsf<br/>
+							</span>
+							<div class="resp-expand"><img src="smiley.gif" class="resp-expand"></img></div>
+							</div>
+							
+							<div class="post-22229 resp">
+							<header>(User Name) Post No. 22225</header>
+							<span>
+							sdfsdasdasdasdfsf<br/>
+							sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+							eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+							sdfsddasddfsf<br/>
+							sdfsddsdasdasdfsf<br/>
+							</span>
+							</div>
+						
+						</div>
+					
+					
+					
 				</div>
 				
 				<div class="post-22225 resp">
@@ -268,9 +373,28 @@
 				sdfsdasdasdasdfsf<br/>
 				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
 				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				sdfsddfsfeweeeeeeeeeesdfdseeeeeeeeeeeeeeeeeeeeeeeeee<br/>
+				eeeeeeeeeeeeeeeeeeeeeeeeeeee<br/>
 				sdfsddasddfsf<br/>
 				sdfsddsdasdasdfsf<br/>
 				</span>
+				<div class="resp-expand"><img src="smiley.gif"></img></div>
 				</div>
 				
 			</div>
@@ -280,7 +404,7 @@
 		<div style="clear:both;"></div>
 	</section>
 
-
+	
 	<section id="foot">	
 
 		
