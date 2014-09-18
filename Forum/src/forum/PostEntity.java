@@ -14,11 +14,6 @@ import javax.persistence.Table;
 
 
 @Entity
-@NamedQueries({
-    @NamedQuery(name="PostEntity.createPost",
-                query="SELECT e FROM ThreadEntity e WHERE e.order"
-                		+ " BETWEEN :bottom AND :top ORDER BY e.order ASC")
-}) 
 @Table (name="posts")
 public class PostEntity {
 	
